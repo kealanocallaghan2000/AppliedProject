@@ -1,5 +1,7 @@
-# G00373834FinalYearProject
+# G00373834 Final Year Project - Kealan O'Callaghan
 My repository for my final year project.
+
+## Audio Synthesis with C++ in the Juce framework
 
 
 ### Github Log
