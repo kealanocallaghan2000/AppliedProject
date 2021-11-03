@@ -9,6 +9,8 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "SynthVoice.h"
+#include "SynthSound.h"
 
 //==============================================================================
 /**
@@ -57,6 +59,8 @@ private:
 	/*Declaring the oscillator - x is input - returning sine wave*/
 	juce::dsp::Oscillator<float> osc{ [](float x) { return std::sin(x); }};
 	juce::dsp::Gain<float> gain;
+
+	juce::Synthesiser synth; // declare synth
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KealansSynthesizerAudioProcessor)

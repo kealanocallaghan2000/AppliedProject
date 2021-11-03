@@ -22,10 +22,14 @@ KealansSynthesizerAudioProcessor::KealansSynthesizerAudioProcessor()
                        )
 #endif
 {
+	synth.addSound(new SynthSound());
+	synth.addVoice(new SynthVoice());
 }
 
 KealansSynthesizerAudioProcessor::~KealansSynthesizerAudioProcessor()
 {
+
+
 }
 
 //==============================================================================
@@ -102,8 +106,10 @@ void KealansSynthesizerAudioProcessor::prepareToPlay (double sampleRate, int sam
 
 	gain.prepare(spec); // passing gain process spec
 
-	osc.setFrequency(220.0f); // setting the frequency level
-	gain.setGainLinear(0.01); // setting the linear gain (between 0 and 1)
+	osc.setFrequency(350.0f); // setting the frequency level
+	gain.setGainLinear(0.02); // setting the linear gain (between 0 and 1)
+
+	synth.setCurrentPlaybackSampleRate(sampleRate); // sets the current sample playback rate
 }
 
 void KealansSynthesizerAudioProcessor::releaseResources()
@@ -139,15 +145,15 @@ bool KealansSynthesizerAudioProcessor::isBusesLayoutSupported (const BusesLayout
 #endif
 
 // where the actual audio processing happens
-void KealansSynthesizerAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    juce::ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
+	juce::ScopedNoDenormals noDenormals;
+	auto totalNumInputChannels = getTotalNumInputChannels();
+	auto totalNumOutputChannels = getTotalNumOutputChannels();
 
 
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+	for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
+		buffer.clear(i, 0, buffer.getNumSamples());
 
 	juce::dsp::AudioBlock<float> audioBlock{ buffer };
 
@@ -157,6 +163,20 @@ void KealansSynthesizerAudioProcessor::processBlock (juce::AudioBuffer<float>& b
 	// osc process runs and audio block contains sine wave info
 	// takes values and turns them down
 	gain.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+
+	// makes sure that if the user changes any parameters that it gets updated
+	for (int i = 0; i < synth.getNumVoices(); ++i)
+	{
+		if (auto voice = dynamic_cast<juce::SynthesiserVoice*>(synth.getVoice(i)))
+		{
+			// osc controls
+			// adsr
+			// LFO
+		}
+	}
+
+
+	synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples()); // output audio buffer, input midi = midi messages, start sample = 0, buffer = get number of samples 
 }
 
 //==============================================================================

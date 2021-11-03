@@ -475,6 +475,9 @@
     <ClCompile Include="..\..\Source\PluginEditor.cpp">
       <Filter>KealansSynthesizer\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\SynthVoice.cpp">
+      <Filter>KealansSynthesizer\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Documents\JUCE\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -2692,6 +2695,12 @@
       <Filter>KealansSynthesizer\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginEditor.h">
+      <Filter>KealansSynthesizer\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SynthVoice.h">
+      <Filter>KealansSynthesizer\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SynthSound.h">
       <Filter>KealansSynthesizer\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Documents\JUCE\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
