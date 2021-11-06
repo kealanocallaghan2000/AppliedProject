@@ -56,9 +56,6 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
-	/*Declaring the oscillator - x is input - returning sine wave*/
-	juce::dsp::Oscillator<float> osc{ [](float x) { return std::sin(x); }};
-	juce::dsp::Gain<float> gain;
 
 	juce::Synthesiser synth; // declare synth
 

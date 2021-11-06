@@ -17,3 +17,10 @@ My repository for my final year project.
 * set up for loops for updating when changes are made
 * Set up SynthVoice and SynthSounc classes / header files
 * Added just one voice to the synth
+
+#### 06/11/2021
+* Finished setup of PrepareToPlay
+* Finished setup of RenderNextBlock
+* Set up attack/decay/sustain/release methods
+* Made frequency to be changed by midi input in the audio workstation (not hardcoded)
+* Done full build of project and ran in Ableton - successfullyp plays a simple sine wave

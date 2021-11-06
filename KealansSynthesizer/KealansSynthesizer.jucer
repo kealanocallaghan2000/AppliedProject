@@ -3,7 +3,7 @@
 <JUCERPROJECT id="XBzcBE" name="KealansSynthesizer" projectType="audioplug"
               useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1"
               jucerFormatVersion="1" pluginFormats="buildAU,buildStandalone,buildVST3"
-              cppLanguageStandard="17">
+              cppLanguageStandard="17" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn">
   <MAINGROUP id="YdRrp3" name="KealansSynthesizer">
     <GROUP id="{337FD52E-1EC6-2F7A-5D8B-7676CD436B49}" name="Source">
       <FILE id="hj91ia" name="PluginProcessor.cpp" compile="1" resource="0"

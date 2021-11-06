@@ -97,19 +97,18 @@ void KealansSynthesizerAudioProcessor::changeProgramName (int index, const juce:
 //==============================================================================
 void KealansSynthesizerAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-	juce::dsp::ProcessSpec spec;
-	spec.maximumBlockSize = samplesPerBlock; // how big our sample size is
-	spec.sampleRate = sampleRate; // sample rate of wave
-	spec.numChannels = getTotalNumInputChannels(); // number of output channels 
+	synth.setCurrentPlaybackSampleRate(sampleRate);
 
-	osc.prepare(spec); // pass reference into oscillator
+	for (int i = 0; i < synth.getNumVoices(); i++)
+	{
+		if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i))) // turning each of our synthVoices into a synthesiserVoice pointer
+		{
+			// if we set the pointer successfully, we can call prepare to play
+			voice->prepareToPlay(sampleRate, samplesPerBlock, getTotalNumOutputChannels());
+		}
 
-	gain.prepare(spec); // passing gain process spec
+	}
 
-	osc.setFrequency(350.0f); // setting the frequency level
-	gain.setGainLinear(0.02); // setting the linear gain (between 0 and 1)
-
-	synth.setCurrentPlaybackSampleRate(sampleRate); // sets the current sample playback rate
 }
 
 void KealansSynthesizerAudioProcessor::releaseResources()
@@ -155,15 +154,6 @@ void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& bu
 	for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
 		buffer.clear(i, 0, buffer.getNumSamples());
 
-	juce::dsp::AudioBlock<float> audioBlock{ buffer };
-
-	// process oscillator through the buffer
-	osc.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-
-	// osc process runs and audio block contains sine wave info
-	// takes values and turns them down
-	gain.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
-
 	// makes sure that if the user changes any parameters that it gets updated
 	for (int i = 0; i < synth.getNumVoices(); ++i)
 	{
@@ -175,7 +165,7 @@ void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& bu
 		}
 	}
 
-
+	// calling the render on each of our voices
 	synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples()); // output audio buffer, input midi = midi messages, start sample = 0, buffer = get number of samples 
 }
 
