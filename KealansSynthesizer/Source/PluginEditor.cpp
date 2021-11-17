@@ -16,6 +16,16 @@ KealansSynthesizerAudioProcessorEditor::KealansSynthesizerAudioProcessorEditor (
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
+
+	using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment; // code to shorten the below attachments
+
+
+	attackAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "ATTACK", attackAttachment);
+	decayAttachment  = std::make_unique<SliderAttachment>(audioProcessor.apvts, "DECAY", decayAttachment);
+	sustainAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "SUSTAIN", sustainAttachment);
+	releaseAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "RELEASE", releaseAttachment);
+	oscSelectAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(audioProcessor.apvts, "OSC", oscSelector);
+
 }
 
 KealansSynthesizerAudioProcessorEditor::~KealansSynthesizerAudioProcessorEditor()

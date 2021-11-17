@@ -24,3 +24,10 @@ My repository for my final year project.
 * Set up attack/decay/sustain/release methods
 * Made frequency to be changed by midi input in the audio workstation (not hardcoded)
 * Done full build of project and ran in Ableton - successfullyp plays a simple sine wave
+
+#### 16/11/2021
+* Set up main class to accept paremeters
+
+#### 17/11/2021
+* Connected ADSR from front end to back end
+* Error in PluginProcessor.cpp to do with constructor

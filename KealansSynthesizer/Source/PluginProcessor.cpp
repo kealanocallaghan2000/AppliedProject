@@ -197,8 +197,21 @@ void KealansSynthesizerAudioProcessor::setStateInformation (const void* data, in
 // states which kind of parameters we'd like the user to be able to control
 juce::AudioProcessorValueTreeState::ParameterLayout KealansSynthesizerAudioProcessor::createParams()
 {
-	// Combobox: Switch oscillator type
+	// Oscillator wave select
+	std::vector<std::unique_ptr<juce::RangedAudioParameter>> params;
+	params.push_back(std::make_unique<juce::AudioParameterChoice>("OSC", "Oscillator", juce::StringArray{ "Sine", "Saw", "Square" }, 0));
+
+	// ADSR Params
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("ATTACK", "Attack", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f)); // Attack defaulted to 0.1
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f)); // Decay defaulted to 0.1
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 1.0f)); // velocity stays consistent for sustain
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> { 0.1f, 3.0f, 0.1f }, 0.4f)); // Release defaulted to 0.1, max release time 3 seconds
+
+	return { params.begin(), params.end() };
 }
+
+
+
 
 //==============================================================================
 // This creates new instances of the plugin..
