@@ -19,7 +19,7 @@ KealansSynthesizerAudioProcessor::KealansSynthesizerAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ), apvts (*this, nullptr, "Parameters", createParams())
 #endif
 {
 	synth.addSound(new SynthSound());
@@ -194,9 +194,17 @@ void KealansSynthesizerAudioProcessor::setStateInformation (const void* data, in
     // whose contents will have been created by the getStateInformation() call.
 }
 
+// states which kind of parameters we'd like the user to be able to control
+juce::AudioProcessorValueTreeState::ParameterLayout KealansSynthesizerAudioProcessor::createParams()
+{
+	// Combobox: Switch oscillator type
+}
+
 //==============================================================================
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new KealansSynthesizerAudioProcessor();
 }
+
+
