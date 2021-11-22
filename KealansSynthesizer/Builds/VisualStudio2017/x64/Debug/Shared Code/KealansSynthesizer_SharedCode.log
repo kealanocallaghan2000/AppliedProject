@@ -6,7 +6,7 @@ c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.1
           [
               _Ty=KealansSynthesizerAudioProcessorEditor::SliderAttachment
           ]
-  c:\users\keala\repo\appliedproject\kealanssynthesizer\source\plugineditor.cpp(23): note: see reference to function template instantiation 'std::unique_ptr<KealansSynthesizerAudioProcessorEditor::SliderAttachment,std::default_delete<_Ty>> std::make_unique<SliderAttachment,juce::AudioProcessorValueTreeState&,const char(&)[7],std::unique_ptr<_Ty,std::default_delete<_Ty>>&,0>(juce::AudioProcessorValueTreeState &,const char (&)[7],std::unique_ptr<_Ty,std::default_delete<_Ty>> &)' being compiled
+  c:\users\keala\repo\appliedproject\kealanssynthesizer\source\plugineditor.cpp(23): note: see reference to function template instantiation 'std::unique_ptr<KealansSynthesizerAudioProcessorEditor::SliderAttachment,std::default_delete<_Ty>> std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment,juce::AudioProcessorValueTreeState&,const char(&)[7],std::unique_ptr<_Ty,std::default_delete<_Ty>>&,0>(juce::AudioProcessorValueTreeState &,const char (&)[7],std::unique_ptr<_Ty,std::default_delete<_Ty>> &)' being compiled
           with
           [
               _Ty=KealansSynthesizerAudioProcessorEditor::SliderAttachment
