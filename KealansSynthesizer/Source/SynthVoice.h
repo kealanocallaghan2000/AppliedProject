@@ -30,6 +30,7 @@ public:
 private:
 	juce::ADSR adsr; //adsr attack decay sustain release
 	juce::ADSR::Parameters adsrParams;
+	juce::AudioBuffer<float> synthBuffer; // audio buffer to prevent clicking
 
 
 	/*Declaring the oscillator - x is input - returning sine wave*/

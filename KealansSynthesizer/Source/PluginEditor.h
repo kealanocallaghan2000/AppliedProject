@@ -12,6 +12,7 @@
 #include "PluginProcessor.h"
 
 //==============================================================================
+//==============================================================================
 /**
 */
 class KealansSynthesizerAudioProcessorEditor  : public juce::AudioProcessorEditor
@@ -32,7 +33,7 @@ private:
 	juce::Slider releaseSlider;
 	juce::ComboBox oscSelector;
 
-	
+	KealansSynthesizerAudioProcessor& audioProcessor; // reference toplugin processor (access to apvts)
 
 	using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment; // code to shorten the below attachments
 
@@ -44,7 +45,8 @@ private:
 	std::unique_ptr<SliderAttachment> releaseAttachment;
 	std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> oscSelectAttachment;
 
-	KealansSynthesizerAudioProcessor& audioProcessor; // reference toplugin processor (access to apvts)
+
+
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KealansSynthesizerAudioProcessorEditor)
 };

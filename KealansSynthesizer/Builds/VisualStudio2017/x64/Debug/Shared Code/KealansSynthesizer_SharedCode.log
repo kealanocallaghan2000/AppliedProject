@@ -1,13 +1,45 @@
-﻿  PluginEditor.cpp
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.16.27023\include\memory(2539): error C2664: 'juce::AudioProcessorValueTreeState::SliderAttachment::SliderAttachment(const juce::AudioProcessorValueTreeState::SliderAttachment &)': cannot convert argument 3 from 'std::unique_ptr<KealansSynthesizerAudioProcessorEditor::SliderAttachment,std::default_delete<_Ty>>' to 'juce::Slider &'
+﻿  PluginProcessor.cpp
+  PluginEditor.cpp
+  SynthVoice.cpp
+  include_juce_audio_basics.cpp
+  include_juce_audio_devices.cpp
+  include_juce_audio_formats.cpp
+  include_juce_audio_plugin_client_utils.cpp
+  include_juce_audio_processors.cpp
+  include_juce_audio_utils.cpp
+  include_juce_core.cpp
+  include_juce_data_structures.cpp
+  include_juce_dsp.cpp
+  include_juce_events.cpp
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter (compiling source file ..\..\Source\SynthVoice.cpp)
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter (compiling source file ..\..\Source\SynthVoice.cpp)
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(18): warning C4100: 'currentPitchWheelPosition': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(18): warning C4100: 'sound': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(18): warning C4100: 'velocity': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(25): warning C4100: 'velocity': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(34): warning C4100: 'newControllerValue': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(34): warning C4100: 'controllerNumber': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(88): warning C4305: 'argument': truncation from 'double' to 'FloatType'
           with
           [
-              _Ty=KealansSynthesizerAudioProcessorEditor::SliderAttachment
+              FloatType=float
           ]
-  c:\users\keala\repo\appliedproject\kealanssynthesizer\source\plugineditor.cpp(23): note: see reference to function template instantiation 'std::unique_ptr<KealansSynthesizerAudioProcessorEditor::SliderAttachment,std::default_delete<_Ty>> std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment,juce::AudioProcessorValueTreeState&,const char(&)[7],std::unique_ptr<_Ty,std::default_delete<_Ty>>&,0>(juce::AudioProcessorValueTreeState &,const char (&)[7],std::unique_ptr<_Ty,std::default_delete<_Ty>> &)' being compiled
-          with
-          [
-              _Ty=KealansSynthesizerAudioProcessorEditor::SliderAttachment
-          ]
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(102): warning C4100: 'newPitchWheelValue': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter (compiling source file ..\..\Source\PluginEditor.cpp)
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter (compiling source file ..\..\Source\PluginEditor.cpp)
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(84): warning C4100: 'index': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(88): warning C4100: 'index': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(93): warning C4100: 'newName': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(93): warning C4100: 'index': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(184): warning C4100: 'destData': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(191): warning C4100: 'sizeInBytes': unreferenced formal parameter
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(191): warning C4100: 'data': unreferenced formal parameter
+  include_juce_graphics.cpp
+  include_juce_gui_extra.cpp
+c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthvoice.cpp(41): warning C4706: assignment within conditional expression
+  include_juce_gui_basics.cpp
+include_juce_audio_plugin_client_utils.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  KealansSynthesizer_SharedCode.vcxproj -> C:\Users\keala\repo\AppliedProject\KealansSynthesizer\Builds\VisualStudio2017\x64\Debug\Shared Code\KealansSynthesizer.lib

@@ -20,10 +20,10 @@ KealansSynthesizerAudioProcessorEditor::KealansSynthesizerAudioProcessorEditor (
 	using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment; // code to shorten the below attachments
 
 
-	attackAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "ATTACK", attackAttachment);
-	decayAttachment  = std::make_unique<SliderAttachment>(audioProcessor.apvts, "DECAY", decayAttachment);
-	sustainAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "SUSTAIN", sustainAttachment);
-	releaseAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "RELEASE", releaseAttachment);
+	attackAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "ATTACK", attackSlider);
+	decayAttachment  = std::make_unique<SliderAttachment>(audioProcessor.apvts, "DECAY", decaySlider);
+	sustainAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "SUSTAIN", sustainSlider);
+	releaseAttachment = std::make_unique<SliderAttachment>(audioProcessor.apvts, "RELEASE", releaseSlider);
 	oscSelectAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(audioProcessor.apvts, "OSC", oscSelector);
 
 }
