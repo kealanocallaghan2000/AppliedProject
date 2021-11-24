@@ -4,7 +4,7 @@ My repository for my final year project.
 ## Audio Synthesis with C++ in the Juce framework
 
 
-### Github Log
+### Github Log of Progress
 #### 22/10/2021
 * Project Created with Juce
 * Modules added
@@ -31,3 +31,13 @@ My repository for my final year project.
 #### 17/11/2021
 * Connected ADSR from front end to back end
 * Error in PluginProcessor.cpp to do with constructor
+
+#### 23/11/2021 
+* Attempted to fix clicking noise when playing notes by creating an audio buffer
+* Didnt work
+
+#### 24/11/2021
+* Fixed clicking noises with audio buffer
+* Fixed attachment error
+* Connected audio attachments to UI
+* Sliders only half working

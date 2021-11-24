@@ -157,11 +157,18 @@ void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& bu
 	// makes sure that if the user changes any parameters that it gets updated
 	for (int i = 0; i < synth.getNumVoices(); ++i)
 	{
-		if (auto voice = dynamic_cast<juce::SynthesiserVoice*>(synth.getVoice(i)))
+		if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))
 		{
 			// osc controls
 			// adsr
 			// LFO
+
+			auto& attack = *apvts.getRawParameterValue("ATTACK");
+			auto& decay = *apvts.getRawParameterValue("DECAY");
+			auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
+			auto& release = *apvts.getRawParameterValue("RELEASE");
+
+			voice->updateADSR(attack.load(), decay.load(), sustain.load(), release.load()); // .load() means its an atomic float
 		}
 	}
 
@@ -209,9 +216,6 @@ juce::AudioProcessorValueTreeState::ParameterLayout KealansSynthesizerAudioProce
 
 	return { params.begin(), params.end() };
 }
-
-
-
 
 //==============================================================================
 // This creates new instances of the plugin..

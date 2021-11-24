@@ -58,9 +58,6 @@ void SynthVoice::renderNextBlock(juce::AudioBuffer< float > &outputBuffer, int s
 
 	adsr.applyEnvelopeToBuffer(synthBuffer, 0, synthBuffer.getNumSamples());
 
-	if (startSample != 0)
-		jassertfalse;
-
 	for (int channel = 0; channel < outputBuffer.getNumChannels(); ++channel)
 	{
 		// if theres audio that is already inside of the buffer, add from 0
@@ -73,6 +70,18 @@ void SynthVoice::renderNextBlock(juce::AudioBuffer< float > &outputBuffer, int s
 		}
 	}
 
+}
+
+// updates the value of the adsr in the process block
+void SynthVoice::updateADSR(const float attack, const float decay, const float sustain, const float release)
+{
+	// setting the adsr values
+	adsrParams.attack = attack;
+	adsrParams.decay = decay;
+	adsrParams.sustain = sustain;
+	adsrParams.release = release;
+
+	adsr.setParameters(adsrParams);
 }
 
 void SynthVoice::prepareToPlay(double sampleRate, int samplesPerBlock, int outputChannels)
@@ -89,15 +98,6 @@ void SynthVoice::prepareToPlay(double sampleRate, int samplesPerBlock, int outpu
 	gain.prepare(spec); // passing gain process spec
 
 	gain.setGainLinear(0.4); // setting the linear gain (between 0 and 1)
-
-	// setting some arbitrary values
-	adsrParams.attack = 0.8f;
-	adsrParams.decay = 0.8f;
-	adsrParams.sustain = 1.0f;
-	adsrParams.release = 1.5f;
-
-	adsr.setParameters(adsrParams);
-
 
 	isPrepared = true; // lets us know that the prepare to play is initialized
 }
