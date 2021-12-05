@@ -12,6 +12,7 @@
 
 #include <JuceHeader.h>
 #include "SynthSound.h"
+#include "Data/AdsrData.h"
 
 // inheriting from the Juce Class SynthesiserVoice
 class SynthVoice : public juce::SynthesiserVoice
@@ -25,11 +26,10 @@ public:
 	void prepareToPlay(double sampleRate, int samplesPerBlock, int outputChannels); // no override
 	void pitchWheelMoved(int newPitchWheelValue)  override; // call to let voice object know the pitch wheel has been moved
 
-	void updateADSR(const float attack, const float decay, const float sustain, const float release);
+	void update(const float attack, const float decay, const float sustain, const float release);
 
 private:
-	juce::ADSR adsr; //adsr attack decay sustain release
-	juce::ADSR::Parameters adsrParams;
+	AdsrData adsr;
 	juce::AudioBuffer<float> synthBuffer; // audio buffer to prevent clicking
 
 

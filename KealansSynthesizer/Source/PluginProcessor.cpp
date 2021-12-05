@@ -168,7 +168,7 @@ void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& bu
 			auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
 			auto& release = *apvts.getRawParameterValue("RELEASE");
 
-			voice->updateADSR(attack.load(), decay.load(), sustain.load(), release.load()); // .load() means its an atomic float
+			voice->update(attack.load(), decay.load(), sustain.load(), release.load()); // .load() means its an atomic float
 		}
 	}
 

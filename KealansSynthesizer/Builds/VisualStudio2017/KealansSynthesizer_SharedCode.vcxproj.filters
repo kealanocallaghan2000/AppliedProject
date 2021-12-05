@@ -5,6 +5,12 @@
     <Filter Include="KealansSynthesizer\Source">
       <UniqueIdentifier>{FB515A4A-AC4F-179C-FFBA-A1399DFDFD1A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="KealansSynthesizer\UI">
+      <UniqueIdentifier>{8CC61D25-D401-1FF7-4944-016617498635}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KealansSynthesizer\Data">
+      <UniqueIdentifier>{F662DEF6-FF2E-FED3-29F5-972E588258CF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="KealansSynthesizer">
       <UniqueIdentifier>{5D0A94F5-32C8-C2F5-1E85-7745B8B0A682}</UniqueIdentifier>
     </Filter>
@@ -477,6 +483,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\SynthVoice.cpp">
       <Filter>KealansSynthesizer\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UI\AdsrComponent.cpp">
+      <Filter>KealansSynthesizer\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Data\AdsrData.cpp">
+      <Filter>KealansSynthesizer\Data</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\Documents\JUCE\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <Filter>JUCE Modules\juce_audio_basics\buffers</Filter>
@@ -2702,6 +2714,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\SynthSound.h">
       <Filter>KealansSynthesizer\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UI\AdsrComponent.h">
+      <Filter>KealansSynthesizer\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Data\AdsrData.h">
+      <Filter>KealansSynthesizer\Data</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\Documents\JUCE\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
