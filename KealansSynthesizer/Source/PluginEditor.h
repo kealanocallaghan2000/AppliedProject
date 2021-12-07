@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 #include "UI/AdsrComponent.h"
+#include "UI//OscComponent.h"
 
 //==============================================================================
 //==============================================================================
@@ -27,9 +28,8 @@ public:
     void resized() override;
 
 private:
-	juce::ComboBox oscSelector;
-	std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> oscSelAttachment;
 	KealansSynthesizerAudioProcessor& audioProcessor; // reference toplugin processor (access to apvts)
+	OscComponent osc; // declaringb the oscillator component
 	AdsrComponent adsr; // reference to the sliders in AdsrComponent.h
 
 

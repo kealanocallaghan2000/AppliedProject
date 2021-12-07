@@ -13,6 +13,7 @@
 #include <JuceHeader.h>
 #include "SynthSound.h"
 #include "Data/AdsrData.h"
+#include "Data/OscData.h"
 
 // inheriting from the Juce Class SynthesiserVoice
 class SynthVoice : public juce::SynthesiserVoice
@@ -27,14 +28,18 @@ public:
 	void pitchWheelMoved(int newPitchWheelValue)  override; // call to let voice object know the pitch wheel has been moved
 
 	void update(const float attack, const float decay, const float sustain, const float release);
+	OscData& getOscillator() { return osc; }
+
 
 private:
 	AdsrData adsr;
 	juce::AudioBuffer<float> synthBuffer; // audio buffer to prevent clicking
 
-
+	OscData osc; // instance of our own oscillator data class
 	/*Declaring the oscillator - x is input - returning saw wave*/
-	juce::dsp::Oscillator<float> osc{ [](float x) { return x / juce::MathConstants<float>::pi; }};
+	//juce::dsp::Oscillator<float> osc{ [](float x) { return x / juce::MathConstants<float>::pi; }};
 	juce::dsp::Gain<float> gain;
 	bool isPrepared{ false };
+
+
 };

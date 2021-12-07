@@ -11,16 +11,14 @@
 
 //==============================================================================
 KealansSynthesizerAudioProcessorEditor::KealansSynthesizerAudioProcessorEditor (KealansSynthesizerAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p), adsr(audioProcessor.apvts) // passing in apvts as constructor
+    : AudioProcessorEditor (&p), audioProcessor (p), osc(audioProcessor.apvts, "OSC1WAVETYPE"), adsr(audioProcessor.apvts) // passing in apvts as constructor
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
-	
-	oscSelAttachment = std::make_unique<juce::AudioProcessorValueTreeState::ComboBoxAttachment>(audioProcessor.apvts, "OSC", oscSelector);
-	
-	//make adsr visible
+	//make adsr & osc visible
 	addAndMakeVisible(adsr);
+	addAndMakeVisible(osc);
 }
 
 KealansSynthesizerAudioProcessorEditor::~KealansSynthesizerAudioProcessorEditor()
@@ -35,7 +33,8 @@ void KealansSynthesizerAudioProcessorEditor::paint (juce::Graphics& g)
 
 void KealansSynthesizerAudioProcessorEditor::resized()
 {
-	// set adsr bounds
+	// set adsr & osc bounds
+	osc.setBounds(10, 20, 100, 30);
 	adsr.setBounds(getWidth() / 2, 0, getWidth() / 2, getHeight());
 }
 

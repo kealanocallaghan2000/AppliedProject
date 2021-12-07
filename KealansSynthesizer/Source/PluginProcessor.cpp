@@ -168,7 +168,11 @@ void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& bu
 			auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
 			auto& release = *apvts.getRawParameterValue("RELEASE");
 
+			auto& oscWaveChoice = *apvts.getRawParameterValue("OSC1WAVETYPE");
+
+
 			voice->update(attack.load(), decay.load(), sustain.load(), release.load()); // .load() means its an atomic float
+			voice->getOscillator().setWaveType(oscWaveChoice);
 		}
 	}
 
@@ -214,7 +218,12 @@ juce::AudioProcessorValueTreeState::ParameterLayout KealansSynthesizerAudioProce
 	params.push_back(std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 1.0f)); // velocity stays consistent for sustain
 	params.push_back(std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> { 0.1f, 3.0f, 0.1f }, 0.4f)); // Release defaulted to 0.1, max release time 3 seconds
 
+	params.push_back(std::make_unique <juce::AudioParameterChoice>("OSC1WAVETYPE", "Osc 1 Wave type", juce::StringArray{ "Sine", "Saw", "Square" }, 0));
+	
+	
+	
 	return { params.begin(), params.end() };
+	
 }
 
 //==============================================================================

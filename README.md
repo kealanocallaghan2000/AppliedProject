@@ -41,3 +41,22 @@ My repository for my final year project.
 * Fixed attachment error
 * Connected audio attachments to UI
 * Sliders only half working
+
+#### 28/11/2021
+* Sliders still not fully working but just have to be tweaked
+
+#### 05/12/2021
+* Began tidying Adsr into encapsulated classes
+* Created encapsulations for the Adsr UI and the data
+* Changed ADSR sliders sizes
+* More object oriented approach from now on
+
+#### 06/12/2021
+* Created encapsulations for oscillator class
+* Moved code around slightly
+
+#### 07/12/2021
+* Moved all osc code into their own classes
+* created front end for oscillator
+* Front end attached to noise now
+* Three different wave types now working

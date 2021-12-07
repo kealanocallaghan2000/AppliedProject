@@ -17,7 +17,7 @@ bool SynthVoice::canPlaySound(juce::SynthesiserSound* sound) // returns true if 
 
 void SynthVoice::startNote(int midiNoteNumber, float velocity, juce::SynthesiserSound *sound, int currentPitchWheelPosition) // called to start a new note
 {
-	osc.setFrequency(juce::MidiMessage::getMidiNoteInHertz(midiNoteNumber)); // setting the frequency level
+	osc.setWaveFrequency(midiNoteNumber);
 	adsr.noteOn(); // starts the attack of the envelopemk
 
 }
@@ -48,9 +48,7 @@ void SynthVoice::renderNextBlock(juce::AudioBuffer< float > &outputBuffer, int s
 	synthBuffer.clear();
 
 	juce::dsp::AudioBlock<float> audioBlock{ synthBuffer };
-
-	// process oscillator through the buffer
-	osc.process(juce::dsp::ProcessContextReplacing<float>(audioBlock));
+	osc.getNextAudioBlock(audioBlock);
 
 	// osc process runs and audio block contains sine wave info
 	// takes values and turns them down
@@ -87,8 +85,7 @@ void SynthVoice::prepareToPlay(double sampleRate, int samplesPerBlock, int outpu
 	spec.sampleRate = sampleRate; // sample rate of wave
 	spec.numChannels = outputChannels; // number of output channels 
 
-	osc.prepare(spec); // pass reference into oscillator
-
+	osc.prepareToPlay(spec);
 	gain.prepare(spec); // passing gain process spec
 
 	gain.setGainLinear(0.4); // setting the linear gain (between 0 and 1)

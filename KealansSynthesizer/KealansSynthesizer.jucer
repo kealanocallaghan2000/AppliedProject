@@ -21,10 +21,15 @@
       <FILE id="n6UlzI" name="AdsrComponent.cpp" compile="1" resource="0"
             file="Source/UI/AdsrComponent.cpp"/>
       <FILE id="r8jXOx" name="AdsrComponent.h" compile="0" resource="0" file="Source/UI/AdsrComponent.h"/>
+      <FILE id="bq9p0F" name="OscComponent.cpp" compile="1" resource="0"
+            file="Source/UI/OscComponent.cpp"/>
+      <FILE id="nuktS0" name="OscComponent.h" compile="0" resource="0" file="Source/UI/OscComponent.h"/>
     </GROUP>
     <GROUP id="{BE925FD2-8809-7D50-A8EA-2C0B33ED81B4}" name="Data">
       <FILE id="ScRYIt" name="AdsrData.cpp" compile="1" resource="0" file="Source/Data/AdsrData.cpp"/>
       <FILE id="XygfE9" name="AdsrData.h" compile="0" resource="0" file="Source/Data/AdsrData.h"/>
+      <FILE id="aYUlGg" name="OscData.cpp" compile="1" resource="0" file="Source/Data/OscData.cpp"/>
+      <FILE id="By1mgw" name="OscData.h" compile="0" resource="0" file="Source/Data/OscData.h"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
