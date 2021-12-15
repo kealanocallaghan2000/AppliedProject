@@ -60,3 +60,13 @@ My repository for my final year project.
 * created front end for oscillator
 * Front end attached to noise now
 * Three different wave types now working
+
+#### 14/12/2021
+* Started to add fm modulation
+* Could only display frequency
+* Set upattachments and backend
+
+#### 15/12/2021
+* Had trouble displaying sound
+* voice line for fm modulation broke output audio
+* fm modulation with freq and depth working, optimised

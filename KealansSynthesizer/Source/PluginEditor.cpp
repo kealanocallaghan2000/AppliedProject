@@ -11,7 +11,7 @@
 
 //==============================================================================
 KealansSynthesizerAudioProcessorEditor::KealansSynthesizerAudioProcessorEditor (KealansSynthesizerAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p), osc(audioProcessor.apvts, "OSC1WAVETYPE"), adsr(audioProcessor.apvts) // passing in apvts as constructor
+    : AudioProcessorEditor (&p), audioProcessor (p), osc(audioProcessor.apvts, "OSC1WAVETYPE", "OSC1FMFREQUENCY", "OSC1FMDEPTH"), adsr(audioProcessor.apvts) // passing in apvts as constructor
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
@@ -34,7 +34,7 @@ void KealansSynthesizerAudioProcessorEditor::paint (juce::Graphics& g)
 void KealansSynthesizerAudioProcessorEditor::resized()
 {
 	// set adsr & osc bounds
-	osc.setBounds(10, 20, 100, 30);
+	osc.setBounds(10, 20, 180, 200);
 	adsr.setBounds(getWidth() / 2, 0, getWidth() / 2, getHeight());
 }
 
