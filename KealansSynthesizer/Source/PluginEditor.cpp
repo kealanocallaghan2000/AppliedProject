@@ -11,11 +11,11 @@
 
 //==============================================================================
 KealansSynthesizerAudioProcessorEditor::KealansSynthesizerAudioProcessorEditor (KealansSynthesizerAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p), osc(audioProcessor.apvts, "OSC1WAVETYPE", "OSC1FMFREQUENCY", "OSC1FMDEPTH"), adsr(audioProcessor.apvts) // passing in apvts as constructor
+    : AudioProcessorEditor (&p), audioProcessor (p), osc(audioProcessor.apvts, "OSC1WAVETYPE", "OSC1FMFREQUENCY", "OSC1FMDEPTH"), adsr("Amp Envelope", audioProcessor.apvts, "ATTACK", "DECAY", "SUSTAIN", "RELEASE") // passing in apvts as constructor
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize (620, 500);
 	//make adsr & osc visible
 	addAndMakeVisible(adsr);
 	addAndMakeVisible(osc);
@@ -33,8 +33,11 @@ void KealansSynthesizerAudioProcessorEditor::paint (juce::Graphics& g)
 
 void KealansSynthesizerAudioProcessorEditor::resized()
 {
+	const auto paddingX = 5;
+	const auto paddingY = 35;
+
 	// set adsr & osc bounds
-	osc.setBounds(10, 20, 180, 200);
-	adsr.setBounds(getWidth() / 2, 0, getWidth() / 2, getHeight());
+	osc.setBounds(paddingX, paddingY, 300, 200);
+	adsr.setBounds(osc.getRight(), paddingY, 300, 200);
 }
 

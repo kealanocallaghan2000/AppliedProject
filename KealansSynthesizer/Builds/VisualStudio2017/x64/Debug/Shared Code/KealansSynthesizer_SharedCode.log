@@ -1,17 +1,8 @@
-﻿  PluginProcessor.cpp
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(84): warning C4100: 'index': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(88): warning C4100: 'index': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(93): warning C4100: 'newName': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(93): warning C4100: 'index': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(179): warning C4244: 'argument': conversion from '_Ty' to 'const int', possible loss of data
+﻿  AdsrComponent.cpp
+c:\users\keala\repo\tester\appliedproject\kealanssynthesizer\source\ui\adsrcomponent.cpp(33): warning C4244: 'argument': conversion from 'float' to 'ValueType', possible loss of data
           with
           [
-              _Ty=float
+              ValueType=int
           ]
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(199): warning C4100: 'destData': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(206): warning C4100: 'sizeInBytes': unreferenced formal parameter
-c:\users\keala\repo\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(206): warning C4100: 'data': unreferenced formal parameter
 include_juce_audio_plugin_client_utils.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-  KealansSynthesizer_SharedCode.vcxproj -> C:\Users\keala\repo\AppliedProject\KealansSynthesizer\Builds\VisualStudio2017\x64\Debug\Shared Code\KealansSynthesizer.lib
+  KealansSynthesizer_SharedCode.vcxproj -> C:\Users\keala\repo\tester\AppliedProject\KealansSynthesizer\Builds\VisualStudio2017\x64\Debug\Shared Code\KealansSynthesizer.lib
