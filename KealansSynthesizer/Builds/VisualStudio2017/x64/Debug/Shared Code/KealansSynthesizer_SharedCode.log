@@ -1,8 +1,5 @@
-﻿  AdsrComponent.cpp
-c:\users\keala\repo\tester\appliedproject\kealanssynthesizer\source\ui\adsrcomponent.cpp(33): warning C4244: 'argument': conversion from 'float' to 'ValueType', possible loss of data
-          with
-          [
-              ValueType=int
-          ]
+﻿  PluginEditor.cpp
+c:\users\keala\repo\tester\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter
+c:\users\keala\repo\tester\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter
 include_juce_audio_plugin_client_utils.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
   KealansSynthesizer_SharedCode.vcxproj -> C:\Users\keala\repo\tester\AppliedProject\KealansSynthesizer\Builds\VisualStudio2017\x64\Debug\Shared Code\KealansSynthesizer.lib

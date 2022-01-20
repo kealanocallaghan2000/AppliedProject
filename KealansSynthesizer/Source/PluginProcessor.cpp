@@ -109,6 +109,8 @@ void KealansSynthesizerAudioProcessor::prepareToPlay(double sampleRate, int samp
 
 	}
 
+	filter.prepareToPlay(sampleRate, samplesPerBlock, getTotalNumOutputChannels());
+
 }
 
 void KealansSynthesizerAudioProcessor::releaseResources()
@@ -182,6 +184,16 @@ void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& bu
 
 	// calling the render on each of our voices
 	synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples()); // output audio buffer, input midi = midi messages, start sample = 0, buffer = get number of samples 
+
+	
+	//FILTER - putting the filter in here instead of in the voice
+	auto& filterType = *apvts.getRawParameterValue("FILTERTYPE");
+	auto& cutoff = *apvts.getRawParameterValue("FILTERFREQ");
+	auto& resonance = *apvts.getRawParameterValue("FILTERRES");
+
+	filter.updateParams(filterType, cutoff, resonance);
+
+	filter.process(buffer);
 }
 
 //==============================================================================
@@ -228,6 +240,14 @@ juce::AudioProcessorValueTreeState::ParameterLayout KealansSynthesizerAudioProce
 	params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1FMFREQUENCY", "Osc 1 FM Frequency", juce::NormalisableRange<float> { 0.0f, 1000.0f, 0.01f, 0.3f}, 0.0f)); // FMFrequency defaulted to 5 hz sine wave
 	//fm depth 
 	params.push_back(std::make_unique<juce::AudioParameterFloat>("OSC1FMDEPTH", "Osc 1 FM Depth", juce::NormalisableRange<float> { 0.0f, 20.0f, 0.01f, 0.3f}, 0.0f)); // FMDepth defaulted to 500
+
+	// filter
+	params.push_back(std::make_unique<juce::AudioParameterChoice>("FILTERTYPE", "Filter Type", 
+		juce::StringArray{ "Low-Pass", "Band-Pass", "High-Pass" }, 0));
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("FILTERFREQ", "Filter Cutoff", 
+		juce::NormalisableRange<float> { 20.0f, 20000.0f, 0.6f }, 200.0f)); 
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("FILTERRES", "Filter Resonance",
+		juce::NormalisableRange<float> { 1.0f, 10.0f, 0.1f }, 1.0f));
 
 	return { params.begin(), params.end() };
 

@@ -70,3 +70,12 @@ My repository for my final year project.
 * Had trouble displaying sound
 * voice line for fm modulation broke output audio
 * fm modulation with freq and depth working, optimised
+
+#### 18/01/2022
+* Cleaned Up UI
+* Fixed Issue with the adsr sliders where I was using the wrong variable to point to them
+
+#### 20/01/2022
+* Added a state variable filter
+* Added High pass, low pass and band pass with resonance and frequency sliders
+* Added to final vst

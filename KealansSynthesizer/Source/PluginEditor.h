@@ -12,6 +12,8 @@
 #include "PluginProcessor.h"
 #include "UI/AdsrComponent.h"
 #include "UI//OscComponent.h"
+#include "UI/FilterComponent.h"
+
 
 //==============================================================================
 //==============================================================================
@@ -31,6 +33,7 @@ private:
 	KealansSynthesizerAudioProcessor& audioProcessor; // reference toplugin processor (access to apvts)
 	OscComponent osc; // declaringb the oscillator component
 	AdsrComponent adsr; // reference to the sliders in AdsrComponent.h
+	FilterComponent filter;
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KealansSynthesizerAudioProcessorEditor)
