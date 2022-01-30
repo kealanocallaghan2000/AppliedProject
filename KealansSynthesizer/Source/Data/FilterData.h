@@ -17,7 +17,7 @@ class FilterData
 public:
 	void prepareToPlay(double sampleRate, int samplesPerBlock, int numChannels); // always need a preparetoplay to pass the sample rate to algorithm
 	void process(juce::AudioBuffer<float>& buffer);
-	void updateParams(const int filterType, const float freq, const float res);
+	void updateParams(const int filterType, const float freq, const float res, const float modulator = 1.0f);
 	void reset();
 
 private:

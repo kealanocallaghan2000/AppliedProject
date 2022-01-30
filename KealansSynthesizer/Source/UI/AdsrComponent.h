@@ -48,7 +48,7 @@ private:
 	juce::Label sustainLabel{ "Sustain", "S" };
 	juce::Label releaseLabel{ "Release", "R" };
 
-	juce::String componentName{ "" };
+	juce::String componentName{""};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdsrComponent)
 };

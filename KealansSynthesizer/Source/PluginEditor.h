@@ -34,6 +34,8 @@ private:
 	OscComponent osc; // declaringb the oscillator component
 	AdsrComponent adsr; // reference to the sliders in AdsrComponent.h
 	FilterComponent filter;
+	AdsrComponent modAdsr;
+	
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KealansSynthesizerAudioProcessorEditor)

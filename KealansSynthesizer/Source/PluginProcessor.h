@@ -12,7 +12,6 @@
 #include "SynthVoice.h"
 #include "SynthSound.h"
 #include "Data/AdsrData.h"
-#include "Data/FilterData.h"
 
 //==============================================================================
 /**
@@ -62,7 +61,6 @@ public:
 private:
 
 	juce::Synthesiser synth; // declare synth
-	FilterData filter;
 
 	juce::AudioProcessorValueTreeState::ParameterLayout createParams();
 

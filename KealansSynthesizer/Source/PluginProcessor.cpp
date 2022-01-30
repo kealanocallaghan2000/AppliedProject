@@ -108,9 +108,6 @@ void KealansSynthesizerAudioProcessor::prepareToPlay(double sampleRate, int samp
 		}
 
 	}
-
-	filter.prepareToPlay(sampleRate, samplesPerBlock, getTotalNumOutputChannels());
-
 }
 
 void KealansSynthesizerAudioProcessor::releaseResources()
@@ -161,39 +158,41 @@ void KealansSynthesizerAudioProcessor::processBlock(juce::AudioBuffer<float>& bu
 	{
 		if (auto voice = dynamic_cast<SynthVoice*>(synth.getVoice(i)))
 		{
-			// osc controls
-			// adsr
-			// LFO
+			// oscillator
+			auto& oscWaveChoice = *apvts.getRawParameterValue("OSC1WAVETYPE");
 
+			// fm
+			auto& fmDepth = *apvts.getRawParameterValue("OSC1FMDEPTH");
+			auto& fmFrequency = *apvts.getRawParameterValue("OSC1FMFREQUENCY");
+
+			//adsr
 			auto& attack = *apvts.getRawParameterValue("ATTACK");
 			auto& decay = *apvts.getRawParameterValue("DECAY");
 			auto& sustain = *apvts.getRawParameterValue("SUSTAIN");
 			auto& release = *apvts.getRawParameterValue("RELEASE");
 
-			auto& fmDepth = *apvts.getRawParameterValue("OSC1FMDEPTH");
-			auto& fmFrequency = *apvts.getRawParameterValue("OSC1FMFREQUENCY");
+			// filter
+			auto& filterType = *apvts.getRawParameterValue("FILTERTYPE");
+			auto& cutoff = *apvts.getRawParameterValue("FILTERFREQ");
+			auto& resonance = *apvts.getRawParameterValue("FILTERRES");
 
-			auto& oscWaveChoice = *apvts.getRawParameterValue("OSC1WAVETYPE");
+			// filter modulation
+			auto& modattack = *apvts.getRawParameterValue("MODATTACK");
+			auto& moddecay = *apvts.getRawParameterValue("MODDECAY");
+			auto& modsustain = *apvts.getRawParameterValue("MODSUSTAIN");
+			auto& modrelease = *apvts.getRawParameterValue("MODRELEASE");
+				   		
 
-
-			voice->update(attack.load(), decay.load(), sustain.load(), release.load()); // .load() means its an atomic float
+			voice->updateAdsr(attack.load(), decay.load(), sustain.load(), release.load()); // .load() means its an atomic float
 			voice->getOscillator().setFmParams(fmDepth, fmFrequency); // Sets params of the fm modulator
 			voice->getOscillator().setWaveType(oscWaveChoice);
+			voice->updateFilter(filterType.load(), cutoff.load(), resonance.load());
+			voice->updateModAdsr(modattack, moddecay, modsustain, modrelease);
 		}
 	}
 
 	// calling the render on each of our voices
 	synth.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples()); // output audio buffer, input midi = midi messages, start sample = 0, buffer = get number of samples 
-
-	
-	//FILTER - putting the filter in here instead of in the voice
-	auto& filterType = *apvts.getRawParameterValue("FILTERTYPE");
-	auto& cutoff = *apvts.getRawParameterValue("FILTERFREQ");
-	auto& resonance = *apvts.getRawParameterValue("FILTERRES");
-
-	filter.updateParams(filterType, cutoff, resonance);
-
-	filter.process(buffer);
 }
 
 //==============================================================================
@@ -233,6 +232,14 @@ juce::AudioProcessorValueTreeState::ParameterLayout KealansSynthesizerAudioProce
 	params.push_back(std::make_unique<juce::AudioParameterFloat>("DECAY", "Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f)); // Decay defaulted to 0.1
 	params.push_back(std::make_unique<juce::AudioParameterFloat>("SUSTAIN", "Sustain", juce::NormalisableRange<float> { 0.0f, 1.0f, 0.1f }, 1.0f)); // velocity stays consistent for sustain
 	params.push_back(std::make_unique<juce::AudioParameterFloat>("RELEASE", "Release", juce::NormalisableRange<float> { 0.1f, 3.0f, 0.1f }, 0.4f)); // Release defaulted to 0.1, max release time 3 seconds
+
+	// Filter ADSR
+	// ADSR Params
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("MODATTACK", "Mod Attack", juce::NormalisableRange<float> { 0.0f, 2.0f, 0.1f }, 0.1f)); // Attack defaulted to 0.1
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("MODDECAY", "Mod Decay", juce::NormalisableRange<float> { 0.1f, 1.0f, 0.1f }, 0.1f)); // Decay defaulted to 0.1
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("MODSUSTAIN", "Mod Sustain", juce::NormalisableRange<float> { 0.0f, 1.0f, 0.1f }, 1.0f)); // velocity stays consistent for sustain
+	params.push_back(std::make_unique<juce::AudioParameterFloat>("MODRELEASE", "Mod Release", juce::NormalisableRange<float> { 0.1f, 3.0f, 0.1f }, 0.4f)); // Release defaulted to 0.1, max release time 3 seconds
+
 
 	params.push_back(std::make_unique <juce::AudioParameterChoice>("OSC1WAVETYPE", "Osc 1 Wave type", juce::StringArray{ "Sine", "Saw", "Square" }, 0));
 
