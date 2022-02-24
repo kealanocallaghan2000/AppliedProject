@@ -26,7 +26,7 @@ void SynthVoice::stopNote(float velocity, bool allowTailOff) // called to stop a
 {
 	adsr.noteOff(); // starts the release of the envelope
 	modAdsr.noteOff();
-	if (!allowTailOff || adsr.isActive())
+	if (!allowTailOff || ! adsr.isActive())
 	{
 		clearCurrentNote();
 	}

@@ -1,5 +1,79 @@
-﻿  PluginEditor.cpp
-c:\users\keala\repo\tester\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter
-c:\users\keala\repo\tester\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter
+﻿  PluginProcessor.cpp
+  PluginEditor.cpp
+  SynthVoice.cpp
+  AdsrComponent.cpp
+  FilterComponent.cpp
+  OscComponent.cpp
+  AdsrData.cpp
+  FilterData.cpp
+  OscData.cpp
+  include_juce_audio_basics.cpp
+  include_juce_audio_devices.cpp
+  include_juce_audio_formats.cpp
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\data\oscdata.cpp(45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\data\oscdata.cpp(65): warning C4458: declaration of 'frequency' hides class member
+  c:\users\keala\documents\juce\juce\modules\juce_dsp\widgets\juce_oscillator.h(245): note: see declaration of 'juce::dsp::Oscillator<float>::frequency' (compiling source file ..\..\Source\Data\OscData.cpp)
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\data\oscdata.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\ui\adsrcomponent.cpp(33): warning C4244: 'argument': conversion from 'float' to 'ValueType', possible loss of data
+          with
+          [
+              ValueType=int
+          ]
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter (compiling source file ..\..\Source\PluginProcessor.cpp)
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(84): warning C4100: 'index': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(88): warning C4100: 'index': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(93): warning C4100: 'newName': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(93): warning C4100: 'index': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(188): warning C4244: 'argument': conversion from '_Ty' to 'const int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(189): warning C4244: 'argument': conversion from '_Ty' to 'const int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(210): warning C4100: 'destData': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(217): warning C4100: 'sizeInBytes': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\pluginprocessor.cpp(217): warning C4100: 'data': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\ui\osccomponent.cpp(40): warning C4244: 'argument': conversion from 'float' to 'ValueType', possible loss of data
+          with
+          [
+              ValueType=int
+          ]
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter (compiling source file ..\..\Source\PluginEditor.cpp)
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter (compiling source file ..\..\Source\PluginEditor.cpp)
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\ui\filtercomponent.cpp(40): warning C4244: 'argument': conversion from 'float' to 'ValueType', possible loss of data
+          with
+          [
+              ValueType=int
+          ]
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthsound.h(18): warning C4100: 'midiNoteNumber': unreferenced formal parameter (compiling source file ..\..\Source\SynthVoice.cpp)
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthsound.h(22): warning C4100: 'midiChannel': unreferenced formal parameter (compiling source file ..\..\Source\SynthVoice.cpp)
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(18): warning C4100: 'currentPitchWheelPosition': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(18): warning C4100: 'sound': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(18): warning C4100: 'velocity': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(25): warning C4100: 'velocity': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(35): warning C4100: 'newControllerValue': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(35): warning C4100: 'controllerNumber': unreferenced formal parameter
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(102): warning C4305: 'argument': truncation from 'double' to 'FloatType'
+          with
+          [
+              FloatType=float
+          ]
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(107): warning C4100: 'newPitchWheelValue': unreferenced formal parameter
+  include_juce_audio_plugin_client_utils.cpp
+  include_juce_audio_processors.cpp
+  include_juce_audio_utils.cpp
+  include_juce_core.cpp
+  include_juce_data_structures.cpp
+  include_juce_dsp.cpp
+  include_juce_events.cpp
+  include_juce_graphics.cpp
+c:\users\keala\repo\ap\appliedproject\kealanssynthesizer\source\synthvoice.cpp(42): warning C4706: assignment within conditional expression
+  include_juce_gui_extra.cpp
+  include_juce_gui_basics.cpp
 include_juce_audio_plugin_client_utils.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-  KealansSynthesizer_SharedCode.vcxproj -> C:\Users\keala\repo\tester\AppliedProject\KealansSynthesizer\Builds\VisualStudio2017\x64\Debug\Shared Code\KealansSynthesizer.lib
+  KealansSynthesizer_SharedCode.vcxproj -> C:\Users\keala\repo\AP\AppliedProject\KealansSynthesizer\Builds\VisualStudio2017\x64\Debug\Shared Code\KealansSynthesizer.lib

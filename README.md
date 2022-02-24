@@ -79,3 +79,21 @@ My repository for my final year project.
 * Added a state variable filter
 * Added High pass, low pass and band pass with resonance and frequency sliders
 * Added to final vst
+
+#### 27/01/2022
+* Couldn't fix release slider
+* Began development on website with react and netlify
+
+#### 29/01/2022
+* FInished main pages of website
+* Need to add download button 
+
+#### 30/01/2022
+* Deployed website and purchased domain
+
+#### 14/02/2022
+* Completed website and deployed to domain
+
+#### 24/02/2022
+* Finally fixed release sliders
+* Synth is completed
