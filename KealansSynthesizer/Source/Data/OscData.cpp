@@ -58,7 +58,7 @@ void OscData::getNextAudioBlock(juce::dsp::AudioBlock<float>& block)
 		};
 	}
 
-	// process oscillator through the buffer
+	// process oscillator through the buffer 
 	process(juce::dsp::ProcessContextReplacing<float>(block));
 }
 
